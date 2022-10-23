@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@gen-x/data": ["libs/data/src/index.ts"],
+      "@gen-x/generators": ["libs/generators/src/index.ts"],
+      "@gen-x/material": ["libs/material/src/index.ts"],
+      "@gen-x/ui": ["libs/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
