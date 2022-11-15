@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IUser } from '@gen-x/data';
-import { buildNameVariations, ServiceGenerator, Schema } from '@gen-x/generators';
+import { buildNameVariations, ServiceGenerator, Schema, ReducerGenerator } from '@gen-x/generators';
 import { Config } from '@gen-x/generators';
 
 const authSchema: Schema = {
@@ -55,6 +55,10 @@ export class AppComponent {
 
   generate_service() {
     return ServiceGenerator.generate(this.schema, this.config).template;
+  }
+
+  generate_reducer() {
+    return ReducerGenerator.generate(this.schema, this.config).template;
   }
 
 }
