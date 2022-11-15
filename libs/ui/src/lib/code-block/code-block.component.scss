@@ -1,0 +1,9 @@
+pre {
+    display: grid;
+    width: 100%;
+    place-content: center;
+}
+
+button {
+    justify-self: right;
+}

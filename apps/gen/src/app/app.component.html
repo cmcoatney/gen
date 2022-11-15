@@ -1,1 +1,43 @@
-<gen-x-model-form [model]="model" [schema]="schema"></gen-x-model-form>
+<div class="content">
+
+    <h1>Generators</h1>
+    
+    
+    <h3>Generator Config</h3>
+    <p>Add property info to create schema objects for generators.</p>
+    
+ 
+
+    <mat-sidenav-container>
+        <mat-sidenav>Start</mat-sidenav>
+        <mat-sidenav-content>
+            <mat-tab-group>
+                <mat-tab label="Form">
+                    <gen-x-model-form [model]="model" [schema]="schema"></gen-x-model-form>
+
+                    <!-- <gen-x-model-form [model]="model" [schema]="authSchema" (emitSubmit)="generateCode($event)">
+                    </gen-x-model-form> -->
+                </mat-tab>
+                <mat-tab label="CLI">
+                    <gen-x-code-block [code]="generate_service()"></gen-x-code-block>
+                </mat-tab>
+                <mat-tab label="Service">
+                    <gen-x-code-block [code]="generate_service()"></gen-x-code-block>
+                </mat-tab>
+                <!-- <mat-tab label="Reducer">
+                    <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
+                </mat-tab>
+                <mat-tab label="Module">
+                    <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
+                </mat-tab>
+                <mat-tab label="Controller">
+                    <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
+                </mat-tab>
+                <mat-tab label="Service">
+                    <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
+                </mat-tab> -->
+            </mat-tab-group>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

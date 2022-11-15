@@ -9,11 +9,13 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@gen-x/material';
 import { GeneratorsModule } from '@gen-x/generators';
+import { CodeBlockComponent } from './code-block/code-block.component';
+import { ModelTableComponent } from './containers/model-table/model-table.component';
 
 @NgModule({
-  declarations: [ModelFormComponent],
+  declarations: [ModelFormComponent, CodeBlockComponent, ModelTableComponent],
   imports: [
-    CommonModule, 
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -22,6 +24,6 @@ import { GeneratorsModule } from '@gen-x/generators';
     FormlyMaterialModule,
     GeneratorsModule,
   ],
-  exports: [MaterialModule,ModelFormComponent],
+  exports: [MaterialModule, ModelFormComponent, CodeBlockComponent],
 })
-export class UiModule { }
+export class UiModule {}
