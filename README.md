@@ -7,6 +7,11 @@ yarn add --dev @angular/forms @ngx-formly/core @ngx-formly/material
 ## Angular Material
 yarn add @angular/material
 
+yarn add material-icons
+
+in styles.scss add...
+@import '~material-icons/iconfont/material-icons.css';
+
 ## Angular Material Library
 nx generate @nrwl/angular:lib material 
 
