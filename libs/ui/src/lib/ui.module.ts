@@ -24,6 +24,6 @@ import { ModelTableComponent } from './containers/model-table/model-table.compon
     FormlyMaterialModule,
     GeneratorsModule,
   ],
-  exports: [MaterialModule, ModelFormComponent, CodeBlockComponent],
+  exports: [MaterialModule, ModelFormComponent, ModelTableComponent, CodeBlockComponent],
 })
 export class UiModule {}
