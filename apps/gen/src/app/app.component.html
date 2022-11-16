@@ -1,33 +1,60 @@
 <div class="content">
+  <h1>Generators</h1>
 
-    <h1>Generators</h1>
-    
-    
-    <h3>Generator Config</h3>
-    <p>Add property info to create schema objects for generators.</p>
-    
- 
+  <h2>Feature Generator</h2>
 
-    <mat-sidenav-container>
-        <mat-sidenav>Start</mat-sidenav>
-        <mat-sidenav-content>
-            <mat-tab-group>
-                <mat-tab label="Form">
-                    <gen-x-model-form [model]="model" [schema]="schema"></gen-x-model-form>
+  <h3>Config</h3>
+  <p>Add property info to create schema objects for generators.</p>
 
-                    <!-- <gen-x-model-form [model]="model" [schema]="authSchema" (emitSubmit)="generateCode($event)">
-                    </gen-x-model-form> -->
-                </mat-tab>
-                <mat-tab label="CLI">
-                    <gen-x-code-block [code]="generate_service()"></gen-x-code-block>
-                </mat-tab>
-                <mat-tab label="Service">
-                    <gen-x-code-block [code]="generate_service()"></gen-x-code-block>
-                </mat-tab>
-                 <mat-tab label="Reducer">
-                    <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
-                </mat-tab>
-                <!-- mat-tab label="Module">
+  <hr />
+
+  <h5>{{schema.model | uppercase}} FEATURE</h5>
+  <mat-sidenav-container>
+    <mat-sidenav>Start</mat-sidenav>
+    <mat-sidenav-content>
+      <mat-tab-group>
+        <mat-tab label="Form">
+          <gen-x-model-form
+            [model]="model"
+            [schema]="schema"
+          ></gen-x-model-form>
+        </mat-tab>
+        <mat-tab label="CLI">
+          <gen-x-code-block
+            [code]="generate_nx_nest_resource()"
+          ></gen-x-code-block>
+          <gen-x-code-block
+          [code]="generate_component()"
+        ></gen-x-code-block>
+
+        <!--
+            nx generate @nrwl/angular:component login-form --project=ui
+            nx g lib ui --parent-module=apps/$1/src/app/app.module.ts --routing 
+            npx ng g storybook-configuration ui --no-interactive
+            npx ng g class mocks --project=testing
+        -->
+        </mat-tab>
+        <mat-tab label="Service">
+          <mat-tab-group>
+            <mat-tab label="Service">
+              <gen-x-code-block [code]="generate_service()"></gen-x-code-block>
+            </mat-tab>
+            <mat-tab label="Test">
+              <gen-x-code-block [code]="generate_service()"></gen-x-code-block>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-tab>
+        <mat-tab label="Reducer">
+          <mat-tab-group>
+            <mat-tab label="Reducer">
+              <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
+            </mat-tab>
+            <mat-tab label="Test">
+              <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-tab>
+        <!-- mat-tab label="Module">
                     <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
                 </mat-tab>
                 <mat-tab label="Controller">
@@ -36,8 +63,7 @@
                 <mat-tab label="Service">
                     <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
                 </mat-tab> -->
-            </mat-tab-group>
-
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+      </mat-tab-group>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

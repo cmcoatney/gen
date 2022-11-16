@@ -3,9 +3,9 @@ import { buildNameVariations } from './name-variations';
 
 // CHALLENGE: Update service template to be dynamic
 const generate = (schema: Schema, { scope }: Config) => {
-    const { ref, refs, model, models, singleParam } = buildNameVariations(schema);
+  const { ref, refs, model, models, singleParam } = buildNameVariations(schema);
 
-    const template = `
+  const template = `
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Album } from '@acme/api-interfaces';
@@ -48,13 +48,13 @@ export class AlbumsService {
   }
 }`;
 
-    return {
-        template,
-        title: `Albums Service`,
-        fileName: `libs/core-data/src/lib/services/albums/albums.service.ts`,
-    };
+  return {
+    template,
+    title: `${models} Service`,
+    fileName: `libs/core-data/src/lib/services/${models}/${models}.service.ts`,
+  };
 };
 
 export const ServiceGenerator: Generator = {
-    generate,
+  generate,
 };
