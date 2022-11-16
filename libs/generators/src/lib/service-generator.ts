@@ -8,35 +8,35 @@ const generate = (schema: Schema, { scope }: Config) => {
   const template = `
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Album } from '@acme/api-interfaces';
+import { ${model} } from '@${scope}/api-interfaces';
 import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AlbumsService {
-  model = 'albums';
+export class ${models}Service {
+  model = '${refs}';
 
   constructor(private http: HttpClient) { }
 
   all() {
-    return this.http.get<Album[]>(this.getUrl());
+    return this.http.get<${model}[]>(this.getUrl());
   }
 
   find(id: string) {
-    return this.http.get<Album>(this.getUrlWithId(id));
+    return this.http.get<${model}>(this.getUrlWithId(id));
   }
 
-  create(album: Album) {
-    return this.http.post(this.getUrl(), album);
+  create(${singleParam}) {
+    return this.http.post(this.getUrl(), ${ref});
   }
 
-  update(album: Album) {
-    return this.http.put(this.getUrlWithId(album.id), album);
+  update(${singleParam}) {
+    return this.http.put(this.getUrlWithId(${ref}.id), ${ref});
   }
 
-  delete(album: Album) {
-    return this.http.delete(this.getUrlWithId(album.id));
+  delete(${singleParam}) {
+    return this.http.delete(this.getUrlWithId(${ref}.id));
   }
 
   private getUrl() {
@@ -46,7 +46,8 @@ export class AlbumsService {
   private getUrlWithId(id) {
     return \`\${this.getUrl()}/\${id}\`;
   }
-}`;
+}
+`;
 
   return {
     template,

@@ -76,7 +76,7 @@ const _${refs}Reducer = createReducer(
 export function ${refs}Reducer(state: ${models}State | undefined, action: Action) {
   return _${refs}Reducer(state, action);
 }
-  `;
+`;
 
     return {
         template,

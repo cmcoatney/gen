@@ -14,10 +14,14 @@
     <mat-sidenav-content>
       <mat-tab-group>
         <mat-tab label="Form">
-          <gen-x-model-form
-            [model]="model"
-            [schema]="schema"
-          ></gen-x-model-form>
+            <div class="container">
+                <div class="form">
+                    <gen-x-model-form
+                      [model]="model"
+                      [schema]="schema"
+                    ></gen-x-model-form>
+                </div>
+            </div>
         </mat-tab>
         <mat-tab label="CLI">
           <gen-x-code-block
