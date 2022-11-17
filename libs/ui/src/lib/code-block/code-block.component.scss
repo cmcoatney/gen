@@ -1,9 +1,9 @@
 pre {
     display: grid;
     width: 100%;
-    place-content: center;
+    place-content: left;
 }
 
 button {
-    justify-self: right;
+    justify-self: left;
 }

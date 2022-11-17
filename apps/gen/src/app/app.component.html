@@ -1,73 +1,39 @@
-<div class="content">
-  <h1>Generators</h1>
-
-  <h2>Feature Generator</h2>
-
-  <h3>Config</h3>
-  <p>Add property info to create schema objects for generators.</p>
-
-  <hr />
-
-  <h5>{{schema.model | uppercase}} FEATURE</h5>
-  <mat-sidenav-container>
-    <mat-sidenav>Start</mat-sidenav>
-    <mat-sidenav-content>
-      <mat-tab-group>
-        <mat-tab label="Form">
-            <div class="container">
-                <div class="form">
-                    <gen-x-model-form
-                      [model]="model"
-                      [schema]="schema"
-                    ></gen-x-model-form>
-                </div>
-            </div>
-        </mat-tab>
-        <mat-tab label="CLI">
-          <gen-x-code-block
-            [code]="generate_nx_nest_resource()"
-          ></gen-x-code-block>
-          <gen-x-code-block
-          [code]="generate_component()"
-        ></gen-x-code-block>
-
-        <!--
-            nx generate @nrwl/angular:component login-form --project=ui
-            nx g lib ui --parent-module=apps/$1/src/app/app.module.ts --routing 
-            npx ng g storybook-configuration ui --no-interactive
-            npx ng g class mocks --project=testing
-        -->
-        </mat-tab>
-        <mat-tab label="Service">
-          <mat-tab-group>
-            <mat-tab label="Service">
-              <gen-x-code-block [code]="generate_service()"></gen-x-code-block>
-            </mat-tab>
-            <mat-tab label="Test">
-              <gen-x-code-block [code]="generate_service()"></gen-x-code-block>
-            </mat-tab>
-          </mat-tab-group>
-        </mat-tab>
-        <mat-tab label="Reducer">
-          <mat-tab-group>
-            <mat-tab label="Reducer">
-              <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
-            </mat-tab>
-            <mat-tab label="Test">
-              <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
-            </mat-tab>
-          </mat-tab-group>
-        </mat-tab>
-        <!-- mat-tab label="Module">
-                    <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
-                </mat-tab>
-                <mat-tab label="Controller">
-                    <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
-                </mat-tab>
-                <mat-tab label="Service">
-                    <gen-x-code-block [code]="generate_reducer()"></gen-x-code-block>
-                </mat-tab> -->
-      </mat-tab-group>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+<div class="gen-x-toolbar">
+  <mat-toolbar color="primary" class="mat-elevation-z4">
+    <span>
+      <button mat-mini-fab (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </span>
+    <span class="spacer"></span>
+    <button class="login" mat-mini-fab>
+      <mat-icon>person</mat-icon>
+    </button>
+  </mat-toolbar>
 </div>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [opened]="true" mode="side" class="app-sidenav">
+    <ng-container>
+      <span class="logo">
+       <h1><&#92;> Generator</h1>
+      </span>
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+       
+
+          <a [routerLink]="link.path" mat-list-item *ngFor="let link of links">
+            <mat-icon matListIcon>{{ link.icon }}</mat-icon>
+            {{ link.title | uppercase }}
+          </a>
+        
+      </mat-nav-list>
+    </ng-container>
+  </mat-sidenav>
+
+  <div class="app-container">
+   
+     <router-outlet></router-outlet>
+   
+  </div>
+</mat-sidenav-container>

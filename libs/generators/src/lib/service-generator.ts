@@ -1,7 +1,6 @@
 import { Config, Generator, Schema } from './meta-models';
 import { buildNameVariations } from './name-variations';
 
-// CHALLENGE: Update service template to be dynamic
 const generate = (schema: Schema, { scope }: Config) => {
   const { ref, refs, model, models, singleParam } = buildNameVariations(schema);
 
@@ -15,7 +14,7 @@ import { environment } from '@env/environment';
   providedIn: 'root'
 })
 export class ${models}Service {
-  model = '${refs}';
+  model = '${ref}';
 
   constructor(private http: HttpClient) { }
 

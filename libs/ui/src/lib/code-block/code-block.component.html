@@ -1,6 +1,8 @@
 <pre>
+   
     <button  [cdkCopyToClipboard]="code" [cdkCopyToClipboardAttempts]="7" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
         <mat-icon color="primary" aria-hidden="false" aria-label="clipboard icon" fontIcon="content_copy"></mat-icon>
+        <span>{{ listingName }}</span>
     </button>
     <code>
         {{ code }}

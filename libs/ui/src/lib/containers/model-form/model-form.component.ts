@@ -1,9 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { FormGroup } from '@angular/forms';
 import { Schema } from '@gen-x/generators';
 import { FormlyFormOptions } from '@ngx-formly/core';
-
 
 @Component({
   selector: 'gen-x-model-form',
@@ -15,17 +14,15 @@ export class ModelFormComponent {
   @Input() schema: Schema = {
     model: '',
     modelPlural: '',
-    props: []
+    props: [],
   };
-  @Input() options: FormlyFormOptions = {}
-
+  @Input() options: FormlyFormOptions = {};
+  @Output() submitEvent: EventEmitter<FormGroup> = new EventEmitter();
   form = new FormGroup({});
 
   onSubmit(model: any) {
     if (!this.isValidForm()) return false;
-
-    alert(JSON.stringify(model, null, 2));
-
+    this.submitEvent.emit(this.form);
     return true;
   }
 
